@@ -15,7 +15,7 @@ input_file <- NULL
 output_file <- "output.pdf"
 ordenar <- FALSE
 contree_file <- NULL
-keywords <- NULL
+normalize_string <- NULL
 remove_words <- NULL
 replace_names <- list()
 
@@ -29,8 +29,8 @@ for (i in seq_along(args)) {
     ordenar <- TRUE
   } else if (args[i] == "--contree" || args[i] == "-t") {
     contree_file <- args[i + 1]
-  } else if (args[i] == "--keywords" || args[i] == "-k") {
-    keywords <- unlist(strsplit(args[i + 1], ","))
+  } else if (args[i] == "--normalizeString" || args[i] == "-ns") {
+    normalize_string <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--remove" || args[i] == "-r") {
     remove_words <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--replace" || args[i] == "-rp") {
@@ -44,7 +44,7 @@ for (i in seq_along(args)) {
 
 # validation
 if (is.null(input_file)) {
-  cat("Usage: plot_domains.R --input <file.tsv> [--output <file.pdf>] [--sort --contree <.contree>] [--keywords word1,word2] [--remove word3,word4] [--replace old=new,...]\n")
+  cat("Usage: plot_domains.R --input <file.tsv> [--output <file.pdf>] [--sort --contree <.contree>] [--normalize_string word1,word2] [--remove word3,word4] [--replace old=new,...]\n")
   quit(status = 1)
 }
 

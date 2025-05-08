@@ -60,3 +60,13 @@ if (length(normalize_patterns) > 0) {
 } else {
   normalization_rules <- list()
 }
+
+if (length(normalization_rules) > 0) {
+  for (rule in normalization_rules) {
+    df_sorted$V5 <- ifelse(
+      grepl(rule$pattern, df_sorted$V5, ignore.case = TRUE),
+      rule$replacement,
+      df_sorted$V5
+    )
+  }
+}

@@ -107,3 +107,10 @@ words_to_remove <- c()
 if (!is.null(remove_arg)) {
   words_to_remove <- unlist(strsplit(remove_arg, ","))
 }
+
+df_filtered <- df_sorted
+if (length(words_to_remove) > 0) {
+  df_filtered <- df_sorted %>%
+    filter(!grepl(paste(words_to_remove, collapse = "|"), V5, ignore.case = TRUE))
+}
+

@@ -58,7 +58,7 @@ df_sorted <- data %>%
 
 
 # If there are multiple --normalize, combine them
-if (length(normalize_string) > 0) {
+if (!is.null(normalize_string)) {
   normalization_rules <- lapply(normalize_string, function(x) {
     parts <- strsplit(x, ":", fixed = TRUE)[[1]]
     list(pattern = parts[1], replacement = parts[2])
@@ -75,4 +75,19 @@ if (length(normalization_rules) > 0) {
       df_sorted$V5
     )
   }
+}
+
+if(length(replacements) > 0) {
+    # Luego por ":" para separar claves y valores
+    kv <- strsplit(pairs, ":")
+
+    # Convertimos en lista nombrada para recode()
+    replacements <- setNames(
+        sapply(kv, `[`, 2),
+        sapply(kv, `[`, 1)
+    )
+
+    # Aplicamos con recode
+    df_sorted <- df_sorted %>%
+        mutate(V5 = recode(V5, !!!replacements))
 }

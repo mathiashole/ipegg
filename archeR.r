@@ -75,7 +75,6 @@ if (!is.null(normalize_string)) {
   }
 } # Normalization string (e.g. "SIGNAL_PEPTIDE:Signal_peptide,SignalP-TM:Signal_peptide")
 
-
 if (length(normalization_rules) > 0) {
   for (rule in normalization_rules) {
     df_sorted$V5 <- ifelse(
@@ -98,4 +97,4 @@ if (!is.null(replacement_arg)) {
     }
   }, simplify = FALSE)
   replace_names <- unlist(replace_names)
-}
+} # replace (e.g. "PS00022=EGF-like-1,SM00710=PbH1,SSF51126=Pectin lyase-like,SSF57184=Growth factor receptor domain")

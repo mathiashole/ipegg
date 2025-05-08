@@ -44,7 +44,7 @@ for (i in seq_along(args)) {
 
 # validation
 if (is.null(input_file)) {
-  cat("Uso: plot_dominios.R --input <archivo.tsv> [--output <archivo.pdf>] [--ordenar --contree <.contree>] [--keywords palabra1,palabra2] [--remove palabra3,palabra4] [--replace vieja=nueva,...]\n")
+  cat("Usage: plot_domains.R --input <file.tsv> [--output <file.pdf>] [--sort --contree <.contree>] [--keywords word1,word2] [--remove word3,word4] [--replace old=new,...]\n")
   quit(status = 1)
 }
 

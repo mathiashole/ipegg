@@ -86,6 +86,7 @@ if (length(normalization_rules) > 0) {
   }
 }
 
+replace_names <- c()
 if (!is.null(replacement_arg)) {
   replacement_pairs <- unlist(strsplit(replacement_arg, ","))
   replace_names <- sapply(replacement_pairs, function(x) {

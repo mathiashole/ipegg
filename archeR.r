@@ -49,4 +49,4 @@ if (is.null(input_file)) {
 }
 
 # read tsv file
-dominios <- read.delim(input_file, header = TRUE, stringsAsFactors = FALSE)
+dominios <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)

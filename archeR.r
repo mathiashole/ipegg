@@ -112,5 +112,4 @@ df_filtered <- df_sorted
 if (length(words_to_remove) > 0) {
   df_filtered <- df_sorted %>%
     filter(!grepl(paste(words_to_remove, collapse = "|"), V5, ignore.case = TRUE))
-}
-
+} # Remove (e.g. "SIGNAL_PEPTIDE_H_REGION,SIGNAL_PEPTIDE_C_REGION,SIGNAL_PEPTIDE_N_REGION,TRANSMEMBRANE,NON_CYTOPLASMIC_DOMAIN,CYTOPLASMIC_DOMAIN,PTHR24044,mobidb-lite,PF11024,PF11038,PF11040,PF22274,PF22279,G3DSA:2.160.20.10"

@@ -51,6 +51,12 @@ if (is.null(input_file)) {
 # read tsv file
 dominios <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
 
+df_sorted <- data %>%
+  group_by(V1) %>%           # Group by column V1
+  arrange(V7, .by_group = TRUE) %>% # Sort within each group according to column V7
+  ungroup()                  # Remove clustering to avoid unwanted effects later
+
+
 # If there are multiple --normalize, combine them
 if (length(normalize_string) > 0) {
   normalization_rules <- lapply(normalize_string, function(x) {

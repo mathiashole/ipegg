@@ -30,7 +30,7 @@ for (i in seq_along(args)) {
   } else if (args[i] == "--contree" || args[i] == "-t") {
     contree_file <- args[i + 1]
   } else if (args[i] == "--normalizeString" || args[i] == "-ns") {
-    normalize_string <- unlist(strsplit(args[i + 1], ","))
+    normalize_string <- args[i + 1]
   } else if (args[i] == "--remove" || args[i] == "-r") {
     remove_words <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--replace" || args[i] == "-rp") {
@@ -50,3 +50,13 @@ if (is.null(input_file)) {
 
 # read tsv file
 dominios <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+
+# If there are multiple --normalize, combine them
+if (length(normalize_patterns) > 0) {
+  normalization_rules <- lapply(normalize_patterns, function(x) {
+    parts <- strsplit(x, ":", fixed = TRUE)[[1]]
+    list(pattern = parts[1], replacement = parts[2])
+  })
+} else {
+  normalization_rules <- list()
+}

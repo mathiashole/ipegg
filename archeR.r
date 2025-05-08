@@ -16,7 +16,7 @@ output_file <- "output.pdf"
 ordenar <- FALSE
 contree_file <- NULL
 normalize_string <- NULL
-remove_words <- NULL
+remove_args <- NULL
 replace_names <- list()
 
 # Parse arguments
@@ -31,10 +31,11 @@ for (i in seq_along(args)) {
     contree_file <- args[i + 1]
   } else if (args[i] == "--normalizeString" || args[i] == "-ns") {
     normalize_string <- args[i + 1]
-  } else if (args[i] == "--remove" || args[i] == "-r") {
-    remove_words <- unlist(strsplit(args[i + 1], ","))
+  } else if (args[i] == "--remove" || args[i] == "-rm") {
+    remove_args <- args[i + 1]
+    # remove_words <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--replace" || args[i] == "-rp") {
-    replacement_arg <- args[i + 1]
+    replacement_args <- args[i + 1]
     # replacements <- unlist(strsplit(args[i + 1], ","))
     # replace_names <- sapply(replacements, function(x) {
     #   kv <- unlist(strsplit(x, "="))
@@ -86,8 +87,8 @@ if (length(normalization_rules) > 0) {
 }
 
 replace_names <- c()
-if (!is.null(replacement_arg)) {
-  replacement_pairs <- unlist(strsplit(replacement_arg, ","))
+if (!is.null(replacement_args)) {
+  replacement_pairs <- unlist(strsplit(replacement_args, ","))
   replace_names <- sapply(replacement_pairs, function(x) {
     kv <- unlist(strsplit(x, "=", fixed = TRUE))
     if (length(kv) == 2) {

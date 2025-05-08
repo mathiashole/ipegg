@@ -49,7 +49,7 @@ if (is.null(input_file)) {
 }
 
 # read tsv file
-dominios <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
 
 df_sorted <- data %>%
   group_by(V1) %>%           # Group by column V1

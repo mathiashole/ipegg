@@ -86,17 +86,15 @@ if (length(normalization_rules) > 0) {
   }
 }
 
-if(length(replacements) > 0) {
-    # Luego por ":" para separar claves y valores
-    kv <- strsplit(pairs, ":")
-
-    # Convertimos en lista nombrada para recode()
-    replacements <- setNames(
-        sapply(kv, `[`, 2),
-        sapply(kv, `[`, 1)
-    )
-
-    # Aplicamos con recode
-    df_sorted <- df_sorted %>%
-        mutate(V5 = recode(V5, !!!replacements))
+if (!is.null(replacement_arg)) {
+  replacement_pairs <- unlist(strsplit(replacement_arg, ","))
+  replace_names <- sapply(replacement_pairs, function(x) {
+    kv <- unlist(strsplit(x, "=", fixed = TRUE))
+    if (length(kv) == 2) {
+      setNames(kv[2], kv[1])
+    } else {
+      stop(paste("Invalid replace pair:", x))
+    }
+  }, simplify = FALSE)
+  replace_names <- unlist(replace_names)
 }

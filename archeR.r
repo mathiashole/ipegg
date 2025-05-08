@@ -52,8 +52,8 @@ if (is.null(input_file)) {
 dominios <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
 
 # If there are multiple --normalize, combine them
-if (length(normalize_patterns) > 0) {
-  normalization_rules <- lapply(normalize_patterns, function(x) {
+if (length(normalize_string) > 0) {
+  normalization_rules <- lapply(normalize_string, function(x) {
     parts <- strsplit(x, ":", fixed = TRUE)[[1]]
     list(pattern = parts[1], replacement = parts[2])
   })

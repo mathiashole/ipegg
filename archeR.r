@@ -34,11 +34,12 @@ for (i in seq_along(args)) {
   } else if (args[i] == "--remove" || args[i] == "-r") {
     remove_words <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--replace" || args[i] == "-rp") {
-    replacements <- unlist(strsplit(args[i + 1], ","))
-    replace_names <- sapply(replacements, function(x) {
-      kv <- unlist(strsplit(x, "="))
-      setNames(kv[2], kv[1])
-    }, simplify = FALSE)
+    replacement_arg <- args[i + 1]
+    # replacements <- unlist(strsplit(args[i + 1], ","))
+    # replace_names <- sapply(replacements, function(x) {
+    #   kv <- unlist(strsplit(x, "="))
+    #   setNames(kv[2], kv[1])
+    # }, simplify = FALSE)
   }
 }
 
@@ -64,7 +65,7 @@ if (!is.null(normalize_string)) {
     parts <- strsplit(x, ":", fixed = TRUE)[[1]]
     list(pattern = parts[1], replacement = parts[2])
   })
-  
+
   for (rule in normalization_rules) {
     df_sorted$V5 <- ifelse(
       grepl(rule$pattern, df_sorted$V5, ignore.case = TRUE),

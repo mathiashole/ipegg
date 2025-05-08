@@ -99,3 +99,11 @@ if (!is.null(replacement_args)) {
   }, simplify = FALSE)
   replace_names <- unlist(replace_names)
 } # replace (e.g. "PS00022=EGF-like-1,SM00710=PbH1,SSF51126=Pectin lyase-like,SSF57184=Growth factor receptor domain")
+
+#=====================================================================
+# Remove words
+
+words_to_remove <- c()
+if (!is.null(remove_arg)) {
+  words_to_remove <- unlist(strsplit(remove_arg, ","))
+}

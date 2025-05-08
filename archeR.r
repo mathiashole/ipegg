@@ -16,7 +16,7 @@ output_file <- "output.pdf"
 ordenar <- FALSE
 contree_file <- NULL
 normalize_string <- NULL
-remove_args <- NULL
+remove_arg <- NULL
 replace_names <- list()
 
 # Parse arguments
@@ -32,7 +32,7 @@ for (i in seq_along(args)) {
   } else if (args[i] == "--normalizeString" || args[i] == "-ns") {
     normalize_string <- args[i + 1]
   } else if (args[i] == "--remove" || args[i] == "-rm") {
-    remove_args <- args[i + 1]
+    remove_arg <- args[i + 1]
     # remove_words <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--replace" || args[i] == "-rp") {
     replacement_args <- args[i + 1]
@@ -113,3 +113,56 @@ if (length(words_to_remove) > 0) {
   df_filtered <- df_sorted %>%
     filter(!grepl(paste(words_to_remove, collapse = "|"), V5, ignore.case = TRUE))
 } # Remove (e.g. "SIGNAL_PEPTIDE_H_REGION,SIGNAL_PEPTIDE_C_REGION,SIGNAL_PEPTIDE_N_REGION,TRANSMEMBRANE,NON_CYTOPLASMIC_DOMAIN,CYTOPLASMIC_DOMAIN,PTHR24044,mobidb-lite,PF11024,PF11038,PF11040,PF22274,PF22279,G3DSA:2.160.20.10"
+
+
+#=====================================================================
+# Rename and plot
+
+# Renombrar columnas
+df_rename <- df_filtered %>%
+  rename(
+    block_id = V1, 
+    domain = V5, 
+    start = V7, 
+    end = V8, 
+    label = V6
+  )
+
+nbh <- df_rename %>%
+  mutate(strand = "+") %>%  # Agregar columna strand
+  select(label, nucleotide = domain, block_id, start, end, strand) %>%
+  distinct()
+
+myset <- df_rename %>%
+  mutate(from = start, to = end, strand = "+") %>%  # Agregar columna strand
+  select(label, block_id, domain, start, end, from, to, strand) %>%
+  distinct()
+
+# Generar el gráfico
+nbh_plot <- ggplot(
+  (nbh %>% distinct()),
+  aes(xmin = start, xmax = end, y = block_id)
+) +
+  geom_gene_arrow() +
+  geom_subgene_arrow(
+    data = myset,
+    aes(xmin = start, xmax = end, xsubmin = from, xsubmax = to, fill = domain, y = block_id)
+  ) +
+  geom_subgene_label(
+    data = myset,
+    aes(xmin = start, xmax = end, xsubmin = from, xsubmax = to, label = domain, y = block_id),
+    min.size = 0
+  ) +
+  scale_fill_brewer(palette = "Dark2") +
+  theme_genes() %+replace% 
+  theme(
+    panel.grid.major.y = element_line(colour = NULL),
+    axis.title.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.title.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.line.y = element_blank()
+  )
+
+output_file <- "interproScan_plot.png"
+ggsave(output_file, plot = nbh_plot, width = 18, height = 8, dpi = 600)

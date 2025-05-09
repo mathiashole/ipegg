@@ -116,7 +116,11 @@ if (length(words_to_remove) > 0) {
 
 if(!is.null(tree_file)) {
   tree_data <- read.tree(tree_file)
-  
+  tree_plot <- ggtree(tree_data) +
+    geom_tiplab() +
+    geom_treescale()
+
+    tree_order <- tree_plot$data
 }
 
 #=====================================================================

@@ -29,7 +29,7 @@ for (i in seq_along(args)) {
     output_file <- args[i + 1]
   } else if (args[i] == "--ordenar") {
     ordenar <- TRUE
-  } else if (args[i] == "--contree" || args[i] == "-t") {
+  } else if (args[i] == "--tree" || args[i] == "-t") {
     contree_file <- args[i + 1]
   } else if (args[i] == "--normalizeString" || args[i] == "-ns") {
     normalize_string <- args[i + 1]

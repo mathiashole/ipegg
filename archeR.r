@@ -166,5 +166,7 @@ nbh_plot <- ggplot(
     axis.line.y = element_blank()
   )
 
-output_file <- "interproScan_plot.png"
-ggsave(output_file, plot = nbh_plot, width = 18, height = 8, dpi = 600)
+output_file_png <- "interproScan_plot.png"
+output_file <- "interproScan_plot.pdf"
+ggsave(output_file_png, plot = nbh_plot, width = 18, height = 8, dpi = 600)
+ggsave(output_file, plot = nbh_plot, width = 18, height = 10)

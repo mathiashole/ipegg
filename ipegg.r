@@ -38,11 +38,6 @@ for (i in seq_along(args)) {
     # remove_words <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--replace" || args[i] == "-rp") {
     replacement_args <- args[i + 1]
-    # replacements <- unlist(strsplit(args[i + 1], ","))
-    # replace_names <- sapply(replacements, function(x) {
-    #   kv <- unlist(strsplit(x, "="))
-    #   setNames(kv[2], kv[1])
-    # }, simplify = FALSE)
   }
 }
 

@@ -16,7 +16,7 @@ args <- commandArgs(trailingOnly = TRUE)
 input_file <- NULL
 output_file <- "output.pdf"
 ordenar <- FALSE
-contree_file <- NULL
+tree_file <- NULL
 normalize_string <- NULL
 remove_arg <- NULL
 replace_names <- list()
@@ -30,7 +30,7 @@ for (i in seq_along(args)) {
   } else if (args[i] == "--ordenar") {
     ordenar <- TRUE
   } else if (args[i] == "--tree" || args[i] == "-t") {
-    contree_file <- args[i + 1]
+    tree_file <- args[i + 1]
   } else if (args[i] == "--normalizeString" || args[i] == "-ns") {
     normalize_string <- args[i + 1]
   } else if (args[i] == "--remove" || args[i] == "-rm") {
@@ -111,6 +111,10 @@ if (length(words_to_remove) > 0) {
     filter(!grepl(paste(words_to_remove, collapse = "|"), V5, ignore.case = TRUE))
 } # Remove (e.g. "SIGNAL_PEPTIDE_H_REGION,SIGNAL_PEPTIDE_C_REGION,SIGNAL_PEPTIDE_N_REGION,TRANSMEMBRANE,NON_CYTOPLASMIC_DOMAIN,CYTOPLASMIC_DOMAIN,PTHR24044,mobidb-lite,PF11024,PF11038,PF11040,PF22274,PF22279,G3DSA:2.160.20.10"
 
+#=====================================================================
+# Order tree
+
+if(!is.null())
 
 #=====================================================================
 # Rename and plot

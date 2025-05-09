@@ -120,7 +120,10 @@ if(!is.null(tree_file)) {
     geom_tiplab() +
     geom_treescale()
 
-    tree_order <- tree_plot$data
+    tree_order <- tree_plot$data  %>%
+      filter(isTip)  %>%
+      arrange(y)  %>%
+      pull(label)
 }
 
 #=====================================================================

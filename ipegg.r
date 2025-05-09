@@ -114,7 +114,10 @@ if (length(words_to_remove) > 0) {
 #=====================================================================
 # Order tree
 
-if(!is.null())
+if(!is.null(tree_file)) {
+  tree_data <- read.tree(tree_file)
+  
+}
 
 #=====================================================================
 # Rename and plot

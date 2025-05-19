@@ -160,6 +160,51 @@ seq_limits <- nbh %>%
 nbh <- nbh %>% mutate(block_id = factor(block_id))
 myset <- myset %>% mutate(block_id = factor(block_id))
 
+nbh_plot <- ggplot() +
+  # Central line per sequence
+  geom_segment(
+    data = seq_limits,
+    aes(x = seq_start, xend = seq_end,
+        y = as.numeric(block_id),  # Same numeric approach
+        yend = as.numeric(block_id)),
+    color = "gray50",
+    linewidth = 0.8,
+    alpha = 0.8
+  ) +
+  # main gene
+  geom_rect(
+    data = (nbh %>% distinct()),
+    aes(xmin = start, xmax = end,
+        ymin = as.numeric(block_id) - 0.2,
+        ymax = as.numeric(block_id) + 0.2),
+    fill = "grey80",
+    alpha = 0.7
+  ) +
+  # Domain
+  geom_rect(
+    data = myset,
+    aes(xmin = from, xmax = to,
+        ymin = as.numeric(block_id) - 0.25,
+        ymax = as.numeric(block_id) + 0.25,
+        fill = domain),
+    color = NA
+  ) +
+  # Scales and themes
+  scale_fill_brewer(palette = "Dark2") +
+  scale_y_continuous(
+    breaks = NULL,
+    expand = expansion(add = 0.5)  # Better space
+  ) +
+  labs(x = "Posición", y = NULL) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "right"
+  )
+
 output_file_png <- "interproScan_plot.png"
 output_file <- "interproScan_plot.pdf"
 ggsave(output_file_png, plot = nbh_plot, width = 18, height = 8, dpi = 600)

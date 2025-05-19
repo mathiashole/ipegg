@@ -73,23 +73,23 @@ if (!is.null(normalize_string)) {
   }
 } ## Normalized (e.g. "SIGNAL_PEPTIDE:Signal_peptide,SignalP-TM:Signal_peptide,SignalP-noTM:Signal_peptide")
 
-replace_names <- character()
+# replace_names <- character()
 
-if (!is.null(replacement_args) && nzchar(replacement_args)) {
-  tryCatch({
-    replace_names <- setNames(
-      vapply(strsplit(strsplit(replacement_args, ",")[[1]], "=", fixed = TRUE), 
-        function(x) {
-          if (length(x) != 2) stop("Invalid format in: ", paste(x, collapse = " "))
-          x[2]
-        }, character(1)),
-      vapply(strsplit(strsplit(replacement_args, ",")[[1]], "=", fixed = TRUE), 
-        function(x) x[1], character(1))
-    )
-  }, error = function(e) {
-    stop("Error processing replacement_args: ", e$message)
-  })
-}# replace (e.g. "PS00022=EGF-like-1,SM00710=PbH1,SSF51126=Pectin lyase-like,SSF57184=Growth factor receptor domain")
+# if (!is.null(replacement_args) && nzchar(replacement_args)) {
+#   tryCatch({
+#     replace_names <- setNames(
+#       vapply(strsplit(strsplit(replacement_args, ",")[[1]], "=", fixed = TRUE), 
+#         function(x) {
+#           if (length(x) != 2) stop("Invalid format in: ", paste(x, collapse = " "))
+#           x[2]
+#         }, character(1)),
+#       vapply(strsplit(strsplit(replacement_args, ",")[[1]], "=", fixed = TRUE), 
+#         function(x) x[1], character(1))
+#     )
+#   }, error = function(e) {
+#     stop("Error processing replacement_args: ", e$message)
+#   })
+# }# replace (e.g. "PS00022=EGF-like-1,SM00710=PbH1,SSF51126=Pectin lyase-like,SSF57184=Growth factor receptor domain")
 # replace_names <- c()
 # if (!is.null(replacement_args)) {
 #   replacement_pairs <- unlist(strsplit(replacement_args, ","))
@@ -175,7 +175,7 @@ nbh_plot <- ggplot() +
         y = as.numeric(block_id),  # Same numeric approach
         yend = as.numeric(block_id)),
     color = "gray50",
-    linewidth = 0.8,
+    linewidth = 0.5,
     alpha = 0.8
   ) +
   # main gene
@@ -191,8 +191,8 @@ nbh_plot <- ggplot() +
   geom_rect(
     data = myset,
     aes(xmin = from, xmax = to,
-        ymin = as.numeric(block_id) - 0.25,
-        ymax = as.numeric(block_id) + 0.25,
+        ymin = as.numeric(block_id) - 0.35,
+        ymax = as.numeric(block_id) + 0.35,
         fill = domain),
     color = NA
   ) +

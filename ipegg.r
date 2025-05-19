@@ -56,33 +56,6 @@ df_sorted <- data %>%
   ungroup()                  # Remove clustering to avoid unwanted effects later
 
 
-# If there are multiple --normalize, combine them
-# if (!is.null(normalize_string)) {
-#   normalization_rules <- strsplit(normalize_string, ",")[[1]]
-#   normalization_rules <- lapply(normalize_string, function(x) {
-#     parts <- strsplit(x, ":", fixed = TRUE)[[1]]
-#     list(pattern = parts[1], replacement = parts[2])
-#   })
-
-#   for (rule in normalization_rules) {
-#     df_sorted$V5 <- ifelse(
-#       grepl(rule$pattern, df_sorted$V5, ignore.case = TRUE),
-#       rule$replacement,
-#       df_sorted$V5
-#     )
-#   }
-# } # Normalization string (e.g. "SIGNAL_PEPTIDE:Signal_peptide,SignalP-TM:Signal_peptide")
-
-# if (length(normalization_rules) > 0) {
-#   for (rule in normalization_rules) {
-#     df_sorted$V5 <- ifelse(
-#       grepl(rule$pattern, df_sorted$V5, ignore.case = TRUE),
-#       rule$replacement,
-#       df_sorted$V5
-#     )
-#   }
-# }
-
 if (!is.null(normalize_string)) {
   rules <- unlist(strsplit(normalize_string, ","))
 

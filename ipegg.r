@@ -13,7 +13,7 @@ args <- commandArgs(trailingOnly = TRUE)
 
 # Initialize variables
 input_file <- NULL
-output_file <- "output.pdf"
+output_file <- NULL
 ordenar <- FALSE
 tree_file <- NULL
 normalize_string <- NULL

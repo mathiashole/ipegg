@@ -30,14 +30,14 @@ for (i in seq_along(args)) {
     ordenar <- TRUE
   } else if (args[i] == "--tree" || args[i] == "-t") {
     tree_file <- args[i + 1]
-  } else if (args[i] == "--normalizeString" || args[i] == "-ns") {
+  } else if (args[i] == "--replace" || args[i] == "-rp") {
     normalize_string <- args[i + 1]
   } else if (args[i] == "--remove" || args[i] == "-rm") {
     remove_arg <- args[i + 1]
     # remove_words <- unlist(strsplit(args[i + 1], ","))
-  } else if (args[i] == "--replace" || args[i] == "-rp") {
-    replacement_args <- args[i + 1]
-  }
+  } # else if (args[i] == "--replace" || args[i] == "-rp") {
+  #   replacement_args <- args[i + 1]
+  # }
 }
 
 # validation

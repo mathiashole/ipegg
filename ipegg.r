@@ -149,31 +149,7 @@ myset <- df_rename %>%
   select(label, block_id, domain, start, end, from, to, strand) %>%
   distinct()
 
-# Generar el gráfico
-nbh_plot <- ggplot(
-  (nbh %>% distinct()),
-  aes(xmin = start, xmax = end, y = block_id)
-) +
-  geom_gene_arrow() +
-  geom_subgene_arrow(
-    data = myset,
-    aes(xmin = start, xmax = end, xsubmin = from, xsubmax = to, fill = domain, y = block_id)
-  ) +
-  geom_subgene_label(
-    data = myset,
-    aes(xmin = start, xmax = end, xsubmin = from, xsubmax = to, label = domain, y = block_id),
-    min.size = 0
-  ) +
-  scale_fill_brewer(palette = "Dark2") +
-  theme_genes() %+replace% 
-  theme(
-    panel.grid.major.y = element_line(colour = NULL),
-    axis.title.x = element_blank(),
-    axis.ticks.x = element_blank(),
-    axis.title.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.line.y = element_blank()
-  )
+
 
 output_file_png <- "interproScan_plot.png"
 output_file <- "interproScan_plot.pdf"

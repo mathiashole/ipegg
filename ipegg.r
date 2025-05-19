@@ -190,9 +190,8 @@ if (!is.null(output_file)) {
   output_file_pdf <- paste0(output_file, ".pdf")
 } else {
   output_file_png <- paste0(file_path_sans_ext(input_file), "_interproScan_plot.png")
+  output_file_pdf <- paste0(file_path_sans_ext(input_file), "_interproScan_plot.pdf")
 }
 
-output_file_png <- "interproScan_plot.png"
-output_file <- "interproScan_plot.pdf"
 ggsave(output_file_png, plot = nbh_plot, width = 18, height = 8, dpi = 600)
-ggsave(output_file, plot = nbh_plot, width = 18, height = 10)
+ggsave(output_file_pdf, plot = nbh_plot, width = 18, height = 10)

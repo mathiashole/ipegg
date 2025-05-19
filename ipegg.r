@@ -71,21 +71,38 @@ if (!is.null(normalize_string)) {
       )
     }
   }
-}
+} ## Normalized (e.g. "SIGNAL_PEPTIDE:Signal_peptide,SignalP-TM:Signal_peptide,SignalP-noTM:Signal_peptide")
 
-replace_names <- c()
-if (!is.null(replacement_args)) {
-  replacement_pairs <- unlist(strsplit(replacement_args, ","))
-  replace_names <- sapply(replacement_pairs, function(x) {
-    kv <- unlist(strsplit(x, "=", fixed = TRUE))
-    if (length(kv) == 2) {
-      setNames(kv[2], kv[1])
-    } else {
-      stop(paste("Invalid replace pair:", x))
-    }
-  }, simplify = FALSE)
-  replace_names <- unlist(replace_names)
-} # replace (e.g. "PS00022=EGF-like-1,SM00710=PbH1,SSF51126=Pectin lyase-like,SSF57184=Growth factor receptor domain")
+replace_names <- character()
+
+if (!is.null(replacement_args) && nzchar(replacement_args)) {
+  tryCatch({
+    replace_names <- setNames(
+      vapply(strsplit(strsplit(replacement_args, ",")[[1]], "=", fixed = TRUE), 
+        function(x) {
+          if (length(x) != 2) stop("Invalid format in: ", paste(x, collapse = " "))
+          x[2]
+        }, character(1)),
+      vapply(strsplit(strsplit(replacement_args, ",")[[1]], "=", fixed = TRUE), 
+        function(x) x[1], character(1))
+    )
+  }, error = function(e) {
+    stop("Error processing replacement_args: ", e$message)
+  })
+}# replace (e.g. "PS00022=EGF-like-1,SM00710=PbH1,SSF51126=Pectin lyase-like,SSF57184=Growth factor receptor domain")
+# replace_names <- c()
+# if (!is.null(replacement_args)) {
+#   replacement_pairs <- unlist(strsplit(replacement_args, ","))
+#   replace_names <- sapply(replacement_pairs, function(x) {
+#     kv <- unlist(strsplit(x, "=", fixed = TRUE))
+#     if (length(kv) == 2) {
+#       setNames(kv[2], kv[1])
+#     } else {
+#       stop(paste("Invalid replace pair:", x))
+#     }
+#   }, simplify = FALSE)
+#   replace_names <- unlist(replace_names)
+# } # replace (e.g. "PS00022=EGF-like-1,SM00710=PbH1,SSF51126=Pectin lyase-like,SSF57184=Growth factor receptor domain")
 
 #=====================================================================
 # Remove words

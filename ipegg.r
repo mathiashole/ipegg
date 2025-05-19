@@ -157,6 +157,9 @@ seq_limits <- nbh %>%
     seq_end = max(end)
   )
 
+nbh <- nbh %>% mutate(block_id = factor(block_id))
+myset <- myset %>% mutate(block_id = factor(block_id))
+
 output_file_png <- "interproScan_plot.png"
 output_file <- "interproScan_plot.pdf"
 ggsave(output_file_png, plot = nbh_plot, width = 18, height = 8, dpi = 600)

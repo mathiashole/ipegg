@@ -18,7 +18,7 @@ ordenar <- FALSE
 tree_file <- NULL
 normalize_string <- NULL
 remove_arg <- NULL
-replace_names <- list()
+shadow_domain <- NULL
 
 # Parse arguments
 for (i in seq_along(args)) {
@@ -146,18 +146,23 @@ nbh_plot <- ggplot() +
     color = "gray50",
     linewidth = 0.5,
     alpha = 0.8
-  ) +
-  # # main gene
-  # geom_rect(
-  #   data = (nbh %>% distinct()),
-  #   aes(xmin = start, xmax = end,
-  #       ymin = as.numeric(block_id) - 0.2,
-  #       ymax = as.numeric(block_id) + 0.2),
-  #   fill = "grey80",
-  #   alpha = 0.7
-  # ) +
+  )
+
+if(!is.null(shadow_domain)) {
+  # Shadow structure
+  nbh_plot <- nbh_plot +
+    geom_rect(
+      data = (nbh %>% distinct()),
+      aes(xmin = start, xmax = end,
+          ymin = as.numeric(block_id) - 0.2,
+          ymax = as.numeric(block_id) + 0.2),
+      fill = "grey80",
+      alpha = 0.7
+    )
+}
+
   # Domain
-  geom_rect(
+nbh_plot <- geom_rect(
     data = myset,
     aes(xmin = from, xmax = to,
         ymin = as.numeric(block_id) - 0.35,

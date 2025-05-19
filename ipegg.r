@@ -195,5 +195,9 @@ if (is.null(output_file)) {
 output_file_png <- paste0(base_name, ".png")
 output_file_pdf <- paste0(base_name, ".pdf")
 
+cat("Input:", input_file, "\n")
+cat("Output:", output_file_png, "\n")
+cat("Output:", output_file_pdf, "\n")
+
 ggsave(output_file_png, plot = nbh_plot, width = 18, height = 8, dpi = 600)
 ggsave(output_file_pdf, plot = nbh_plot, width = 18, height = 10)

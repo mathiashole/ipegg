@@ -149,7 +149,13 @@ myset <- df_rename %>%
   select(label, block_id, domain, start, end, from, to, strand) %>%
   distinct()
 
-
+seq_limits <- nbh %>%
+  mutate(block_id = factor(block_id)) %>%  # Convert to factor
+  group_by(block_id) %>%
+  summarize(
+    seq_start = min(start),
+    seq_end = max(end)
+  )
 
 output_file_png <- "interproScan_plot.png"
 output_file <- "interproScan_plot.pdf"

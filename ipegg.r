@@ -161,8 +161,8 @@ if(!is.null(shadow_domain)) {
     )
 }
 
-  # Domain
-nbh_plot <- geom_rect(
+nbh_plot <- nbh_plot +
+  geom_rect(
     data = myset,
     aes(xmin = from, xmax = to,
         ymin = as.numeric(block_id) - 0.35,
@@ -170,11 +170,10 @@ nbh_plot <- geom_rect(
         fill = domain),
     color = NA
   ) +
-  # Scales and themes
   scale_fill_brewer(palette = "Dark2") +
   scale_y_continuous(
     breaks = NULL,
-    expand = expansion(add = 0.5)  # Better space
+    expand = expansion(add = 0.5)
   ) +
   labs(x = "Posición", y = NULL) +
   theme_minimal() +

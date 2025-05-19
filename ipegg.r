@@ -186,7 +186,7 @@ nbh_plot <- nbh_plot +
   )
 
 if (is.null(output_file)) {
-  base_name <- sub("\\.[^.]*$", "", input_file)
+  base_name <- sub("\\.[^.]*$", "", basename(input_file))
   base_name <- paste0(base_name, "_interproScan_plot")
 } else {
   base_name <- file_path_sans_ext(output_file)

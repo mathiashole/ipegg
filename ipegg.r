@@ -6,7 +6,6 @@ suppressPackageStartupMessages({
   library(dplyr)
   library(RColorBrewer)
   library(tidyverse)
-  library(gggenes)
 })
 
 # Get command-line arguments

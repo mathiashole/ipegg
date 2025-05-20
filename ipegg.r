@@ -18,7 +18,7 @@ ordenar <- FALSE
 tree_file <- NULL
 normalize_string <- NULL
 remove_arg <- NULL
-shadow_domain <- NULL
+backgroud_domain <- NULL
 
 # Parse arguments
 for (i in seq_along(args)) {

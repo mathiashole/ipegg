@@ -18,7 +18,7 @@ ordenar <- FALSE
 tree_file <- NULL
 normalize_string <- NULL
 remove_arg <- NULL
-backgroud_domain <- NULL
+backgroud_arg <- NULL
 
 # Parse arguments
 for (i in seq_along(args)) {
@@ -35,6 +35,8 @@ for (i in seq_along(args)) {
   } else if (args[i] == "--remove" || args[i] == "-rm") {
     remove_arg <- args[i + 1]
     # remove_words <- unlist(strsplit(args[i + 1], ","))
+  } else if (args[i] == "--background" || args[i] == "-bg") {
+    background_arg <- args[i + 1]
   } # else if (args[i] == "--replace" || args[i] == "-rp") {
   #   replacement_args <- args[i + 1]
   # }

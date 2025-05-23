@@ -207,3 +207,70 @@ ggsave(output_file_pdf, plot = nbh_plot, width = 18, height = 10)
 #======================================================================
 # itol
 
+
+convert_to_itol <- function(data, output_file = "itol_domains.txt", dataset_label = "Protein Domains") {
+  # Prepare the data: sort and calculate protein lengths
+  data_prepared <- data %>%
+    arrange(block_id, start) %>%
+    group_by(block_id) %>%
+    mutate(protein_length = max(end)) %>%
+    ungroup()
+  
+  # Assign unique colors to each domain (consistent with "Dark2" Brewer palette)
+  domain_levels <- levels(factor(data_prepared$domain))
+  domain_colors <- setNames(
+    brewer.pal(max(3, length(domain_levels)), "Dark2")[seq_along(domain_levels)],
+    domain_levels
+  )
+  
+  # Create the file header
+  header <- c(
+    "DATASET_DOMAINS",
+    "#Protein domain datasets are visualized as schematic representations of proteins",
+    "",
+    "#=================================================================#",
+    "#                    MANDATORY SETTINGS                           #",
+    "#=================================================================#",
+    "SEPARATOR COMMA",
+    paste0("DATASET_LABEL,", dataset_label),
+    "COLOR,#ff0000",  # Default color (can be changed later in iTOL)
+    "",
+    "#=================================================================#",
+    "#                    OPTIONAL SETTINGS                            #",
+    "#=================================================================#",
+    "BACKBONE_COLOR,#dddddd",
+    "BACKBONE_HEIGHT,8",
+    "SHOW_DOMAIN_LABELS,1",
+    "LABEL_SIZE_FACTOR,0.8",
+    "LABEL_AUTO_COLOR,1",
+    "BORDER_WIDTH,0.5",
+    "BORDER_COLOR,#000000",
+    "",
+    "#=================================================================#",
+    "#       Actual data follows after the \"DATA\" keyword              #",
+    "#=================================================================#",
+    "DATA"
+  )
+  
+  # Generate iTOL domain lines
+  data_lines <- data_prepared %>%
+    group_by(block_id, protein_length) %>%
+    summarize(
+      domains = paste(
+        sprintf("RE|%d|%d|%s|%s", start, end, domain_colors[domain], domain),
+        collapse = ","
+      ),
+      .groups = "drop"
+    ) %>%
+    mutate(itol_line = sprintf("%s,%d,%s", block_id, protein_length, domains)) %>%
+    pull(itol_line)
+  
+  # Write the output file
+  writeLines(c(header, data_lines), output_file)
+  
+  message("iTOL file successfully generated at: ", output_file)
+  return(invisible(domain_colors))
+}
+
+# # Example usage:
+# convert_to_itol(myset, output_file = "my_domains.itol", dataset_label = "My Protein Domains")

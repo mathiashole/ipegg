@@ -199,6 +199,7 @@ if (is.null(output_file)) {
 
 output_file_png <- paste0(base_name, ".png")
 output_file_pdf <- paste0(base_name, ".pdf")
+output_file_itol <- paste0(base_name, ".itol")
 
 cat("Input:", input_file, "\n")
 cat("Output:", output_file_png, "\n")

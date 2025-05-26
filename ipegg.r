@@ -252,7 +252,8 @@ convert_to_itol <- function(data, output_file = "itol_domains.txt", dataset_labe
     "#=================================================================#",
     "#       Actual data follows after the \"DATA\" keyword              #",
     "#=================================================================#",
-    "DATA"
+    "DATA",
+    ""
   )
   
   # Generate iTOL domain lines

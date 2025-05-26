@@ -110,7 +110,7 @@ if(!is.null(tree_file)) {
 #=====================================================================
 # Rename and plot
 
-# Renombrar columnas
+# Rename colums
 df_rename <- df_filtered %>%
   rename(
     block_id = V1, 

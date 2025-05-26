@@ -287,7 +287,7 @@ if(itol_data) {
   if(file.exists(output_file_itol)) {
     message(paste0(
       "✅ [2/3] iTOL file generated successfully:\n",
-      "   - Path: ", normalizePath(itol_file), "\n",
+      "   - Path: ", normalizePath(output_file_itol), "\n",
       "   - Dataset: 'My Protein Domains'"
     ))
     message("🔵 [3/3] You can upload this file directly to iTOL Web:")

@@ -282,5 +282,13 @@ if(itol_data) {
   message("\n🔵 [1/3] Preparing data for iTOL...")
   # Converting to iTOL format
   convert_to_itol(myset, output_file = output_file_itol, dataset_label = "My Protein Domains")
-  
+
+    # Verification and success message
+  if(file.exists(output_file_itol)) {
+    message(paste0(
+      "✅ [2/3] iTOL file generated successfully:\n",
+      "   - Path: ", normalizePath(itol_file), "\n",
+      "   - Dataset: 'My Protein Domains'"
+    ))
+  }
 }

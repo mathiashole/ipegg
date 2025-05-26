@@ -276,4 +276,7 @@ convert_to_itol <- function(data, output_file = "itol_domains.txt", dataset_labe
 }
 
 # # Example usage:
+if(itol_data) {
+  convert_to_itol(myset, output_file = "my_domains.itol", dataset_label = "My Protein Domains")
+}
 # convert_to_itol(myset, output_file = "my_domains.itol", dataset_label = "My Protein Domains")

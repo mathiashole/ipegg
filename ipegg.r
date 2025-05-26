@@ -37,6 +37,8 @@ for (i in seq_along(args)) {
     # remove_words <- unlist(strsplit(args[i + 1], ","))
   } else if (args[i] == "--background" || args[i] == "-bg") {
     background_arg <- args[i + 1]
+  } else if (args[i] == "--itol" || args[i] == "-it") {
+    itol_data <- TRUE
   } # else if (args[i] == "--replace" || args[i] == "-rp") {
   #   replacement_args <- args[i + 1]
   # }

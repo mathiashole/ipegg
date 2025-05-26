@@ -156,19 +156,6 @@ nbh_plot <- ggplot() +
     alpha = 0.8
   )
 
-# if(!is.null(shadow_domain)) {
-#   # Shadow structure
-#   nbh_plot <- nbh_plot +
-#     geom_rect(
-#       data = (nbh %>% distinct()),
-#       aes(xmin = start, xmax = end,
-#           ymin = as.numeric(block_id) - 0.2,
-#           ymax = as.numeric(block_id) + 0.2),
-#       fill = "grey80",
-#       alpha = 0.7
-#     )
-# }
-
 nbh_plot <- nbh_plot +
   geom_rect(
     data = myset,

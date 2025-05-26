@@ -290,5 +290,9 @@ if(itol_data) {
       "   - Path: ", normalizePath(itol_file), "\n",
       "   - Dataset: 'My Protein Domains'"
     ))
+    message("🔵 [3/3] You can upload this file directly to iTOL Web:")
+    message("   🌐 https://itol.embl.de/upload.cgi")
+  } else {
+    warning("❌ Error: The iTOL file could not be generated. Please check the input data.")
   }
 }

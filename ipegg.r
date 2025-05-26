@@ -130,6 +130,9 @@ myset <- df_rename %>%
   select(label, block_id, domain, start, end, from, to, strand) %>%
   distinct()
 
+#=====================================================================
+# Background domain 
+
 seq_limits <- nbh %>%
   mutate(block_id = factor(block_id)) %>%  # Convert to factor
   group_by(block_id) %>%

@@ -20,6 +20,7 @@ normalize_string <- NULL
 remove_arg <- NULL
 backgroud_arg <- NULL
 itol_data <- FALSE
+generate_stats <- FALSE
 
 # Parse arguments
 for (i in seq_along(args)) {

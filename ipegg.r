@@ -41,7 +41,9 @@ for (i in seq_along(args)) {
     background_arg <- args[i + 1]
   } else if (args[i] == "--itol" || args[i] == "-it") {
     itol_data <- TRUE
-  } # else if (args[i] == "--replace" || args[i] == "-rp") {
+  } else if (args[i] == "--statistics" || args[i] == "-stat") {
+    generate_stats <- TRUE
+  }# else if (args[i] == "--replace" || args[i] == "-rp") {
   #   replacement_args <- args[i + 1]
   # }
 }

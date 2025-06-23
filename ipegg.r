@@ -206,6 +206,55 @@ violin_pdf <- paste0(base_name, "_violin_plot.pdf")
 stats_file <- paste0(base_name, "_domain_stats.tsv")
 count_file <- paste0(base_name, "_domain_count_per_sequence.tsv")
 
+#=====================================================================
+# Descriptive statistics (--statistics)
+
+if (generate_stats) {
+  message("📊 Generating domain statistics...")
+
+  df_stats <- df_rename %>%
+    mutate(domain_length = end - start + 1)
+
+  # Table 1: Statistics by domain type
+  domain_stats <- df_stats %>%
+    group_by(domain) %>%
+    summarize(
+      count = n(),
+      mean_length = round(mean(domain_length), 2),
+      sd_length = round(sd(domain_length), 2)
+    ) %>%
+    arrange(desc(count))
+
+  write.table(domain_stats, stats_file, sep = "\t", row.names = FALSE, quote = FALSE)
+  message("📄 Domain stats written to: ", stats_file)
+
+  # Table 2: Domain count per sequence
+  domain_per_seq <- df_stats %>%
+    group_by(block_id) %>%
+    summarize(num_domains = n())
+
+  write.table(domain_per_seq, count_file, sep = "\t", row.names = FALSE, quote = FALSE)
+  message("📄 Domain count per sequence written to: ", count_file)
+
+  # Violin plot
+  violin_plot <- ggplot(df_stats, aes(x = reorder(domain, domain_length, FUN = median), y = domain_length)) +
+    geom_violin(fill = "#69b3a2", alpha = 0.7, scale = "width") +
+    geom_jitter(height = 0, width = 0.2, alpha = 0.3, size = 0.3) +
+    labs(
+      x = "Domain",
+      y = "Domain length (bp/aa)",
+      title = "Domain length distribution"
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(
+      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+      plot.title = element_text(face = "bold", size = 14)
+    )
+
+  ggsave(violin_png, violin_plot, width = 12, height = 6, dpi = 300)
+  ggsave(violin_pdf, violin_plot, width = 12, height = 6)
+  message("🎻 Violin plot saved to: ", violin_png, " and ", violin_pdf)
+}
 
 #======================================================================
 # itol

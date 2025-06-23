@@ -201,6 +201,12 @@ cat("Output:", output_file_pdf, "\n")
 ggsave(output_file_png, plot = nbh_plot, width = 18, height = 8, dpi = 600)
 ggsave(output_file_pdf, plot = nbh_plot, width = 18, height = 10)
 
+violin_png <- paste0(base_name, "_violin_plot.png")
+violin_pdf <- paste0(base_name, "_violin_plot.pdf")
+stats_file <- paste0(base_name, "_domain_stats.tsv")
+count_file <- paste0(base_name, "_domain_count_per_sequence.tsv")
+
+
 #======================================================================
 # itol
 

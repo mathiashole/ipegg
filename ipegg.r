@@ -42,6 +42,8 @@ generate_stats <- isTRUE(config$options$statistics)
 replace_rules  <- config$normalize$replace
 words_to_remove <- config$remove
 
+itol_label <- config$itol$dataset_label %||% "Protein Domains"
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

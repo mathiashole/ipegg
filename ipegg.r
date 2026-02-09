@@ -74,6 +74,8 @@ if (!is.null(replace_rules)) {
 # Remove specified words from domain names
 #---------------------------------------------------------------------------
 
+df_filtered <- df_sorted
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

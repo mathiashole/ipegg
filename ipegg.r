@@ -48,6 +48,10 @@ if (is.null(input_file)) {
   stop("Input file not defined in config.yaml")
 }
 
+# read tsv file
+data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

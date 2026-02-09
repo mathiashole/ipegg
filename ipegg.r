@@ -44,6 +44,10 @@ words_to_remove <- config$remove
 
 itol_label <- config$itol$dataset_label %||% "Protein Domains"
 
+if (is.null(input_file)) {
+  stop("Input file not defined in config.yaml")
+}
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

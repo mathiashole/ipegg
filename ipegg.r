@@ -28,6 +28,8 @@ if (!file.exists(config_file)) {
 # Assign config values to variables
 #-------------------------------------------------------------------------
 
+input_file <- config$input$file
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

@@ -15,6 +15,11 @@ suppressPackageStartupMessages({
 # Get command-line arguments
 args <- commandArgs(trailingOnly = TRUE)
 
+if (length(args) < 2 || args[1] != "--config") {
+  stop("Usage: plot_domains_yaml.R --config config.yaml")
+}
+
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

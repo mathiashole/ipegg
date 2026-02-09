@@ -25,6 +25,9 @@ if (!file.exists(config_file)) {
   stop("Error: Configuration file not found: ", config_file)
 }
 
+# Assign config values to variables
+#-------------------------------------------------------------------------
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

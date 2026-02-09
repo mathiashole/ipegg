@@ -63,7 +63,11 @@ if (!is.null(replace_rules)) {
   message("Normalizing domain names...")
   for (pattern in names(replace_rules)) {
     replacement <- replace_rules[[pattern]]
-
+    df_sorted$V5 <- ifelse(
+      grepl(pattern, df_sorted$V5, ignore.case = TRUE),
+      replacement,
+      df_sorted$V5
+    )
   }
 }
 

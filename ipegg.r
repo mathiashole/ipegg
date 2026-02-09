@@ -19,6 +19,7 @@ if (length(args) < 2 || args[1] != "--config") {
   stop("Usage: plot_domains_yaml.R --config config.yaml")
 }
 
+config_file <- args[2]
 
 # Initialize variables
 input_file <- NULL

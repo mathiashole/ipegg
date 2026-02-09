@@ -33,6 +33,8 @@ config <- yaml.load_file(config_file)
 input_file <- config$input$file
 output_file <- config$output$prefix
 
+tree_file <- config$tree$file # Optional: Path to the .contree file for ordering sequences
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

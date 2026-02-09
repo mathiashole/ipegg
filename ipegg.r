@@ -25,6 +25,8 @@ if (!file.exists(config_file)) {
   stop("Error: Configuration file not found: ", config_file)
 }
 
+config <- yaml.load_file(config_file)
+
 # Assign config values to variables
 #-------------------------------------------------------------------------
 

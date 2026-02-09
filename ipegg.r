@@ -21,6 +21,10 @@ if (length(args) < 2 || args[1] != "--config") {
 
 config_file <- args[2]
 
+if (!file.exists(config_file)) {
+  stop("Error: Configuration file not found: ", config_file)
+}
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

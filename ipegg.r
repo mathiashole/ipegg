@@ -71,6 +71,9 @@ if (!is.null(replace_rules)) {
   }
 }
 
+# Remove specified words from domain names
+#---------------------------------------------------------------------------
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

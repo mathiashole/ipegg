@@ -62,8 +62,8 @@ df_sorted <- data %>%
 if (!is.null(replace_rules)) {
   message("Normalizing domain names...")
   for (pattern in names(replace_rules)) {
-    replacement <- replace_rules[[pattern]]
-    df_sorted$V5 <- ifelse(
+    replacement <- replace_rules[[pattern]] # Get the replacement value for the current pattern
+    df_sorted$V5 <- ifelse( # Use ifelse to replace values in V5 based on the pattern
       grepl(pattern, df_sorted$V5, ignore.case = TRUE),
       replacement,
       df_sorted$V5

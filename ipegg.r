@@ -12,8 +12,6 @@ suppressPackageStartupMessages({
 # Read configuration from YAML file
 #--------------------------------------------------------------------------
 
-
-
 # Get command-line arguments
 args <- commandArgs(trailingOnly = TRUE)
 

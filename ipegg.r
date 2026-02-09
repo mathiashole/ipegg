@@ -39,6 +39,9 @@ ordenar        <- isTRUE(config$options$ordenar)
 itol_data      <- isTRUE(config$options$itol)
 generate_stats <- isTRUE(config$options$statistics)
 
+replace_rules  <- config$normalize$replace
+words_to_remove <- config$remove
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

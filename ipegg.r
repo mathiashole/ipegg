@@ -61,7 +61,10 @@ df_sorted <- data %>%
 
 if (!is.null(replace_rules)) {
   message("Normalizing domain names...")
+  for (pattern in names(replace_rules)) {
+    replacement <- replace_rules[[pattern]]
 
+  }
 }
 
 # Initialize variables

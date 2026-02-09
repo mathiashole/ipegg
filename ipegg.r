@@ -56,6 +56,13 @@ df_sorted <- data %>%
   arrange(V7, .by_group = TRUE) %>% # Sort within each group according to column V7
   ungroup() # Remove clustering to avoid unwanted effects later
 
+# Normalize domain names based on replace rules
+#---------------------------------------------------------------------------
+
+if (!is.null(replace_rules)) {
+  message("Normalizing domain names...")
+
+}
 
 # Initialize variables
 input_file <- NULL

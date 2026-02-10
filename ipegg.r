@@ -119,6 +119,8 @@ nbh <- df_rename %>%
 
 myset <- df_rename %>%
   mutate(from = start, to = end, strand = "+") %>%  # Add strand column
+  select(label, block_id, domain, start, end, from, to, strand) %>%
+  distinct() # Ensure distinct rows
 
 # Initialize variables
 input_file <- NULL

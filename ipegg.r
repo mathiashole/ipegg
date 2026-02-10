@@ -122,6 +122,9 @@ myset <- df_rename %>%
   select(label, block_id, domain, start, end, from, to, strand) %>%
   distinct() # Ensure distinct rows
 
+# Background domain plotting
+#---------------------------------------------------------------------------
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

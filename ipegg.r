@@ -86,6 +86,14 @@ if (!is.null(words_to_remove) && length(words_to_remove) > 0) {
 # Tree ordering (optional)
 #---------------------------------------------------------------------------
 
+if (!is.null(tree_file)) {
+
+  tree_data <- read.tree(tree_file)
+  tree_plot <- ggtree(tree_data)
+  
+
+}
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

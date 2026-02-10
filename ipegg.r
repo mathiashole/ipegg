@@ -117,6 +117,8 @@ nbh <- df_rename %>%
   select(label, nucleotide = domain, block_id, start, end, strand) %>%
   distinct() # Ensure distinct rows
 
+myset <- df_rename %>%
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

@@ -118,6 +118,7 @@ nbh <- df_rename %>%
   distinct() # Ensure distinct rows
 
 myset <- df_rename %>%
+  mutate(from = start, to = end, strand = "+") %>%  # Add strand column
 
 # Initialize variables
 input_file <- NULL

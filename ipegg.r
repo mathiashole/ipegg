@@ -109,6 +109,9 @@ df_rename <- df_filtered %>%
     label = V6
   )
 
+# Prepare data for plotting
+#---------------------------------------------------------------------------
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

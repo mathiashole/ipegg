@@ -97,6 +97,18 @@ if (!is.null(tree_file)) {
     pull(label)
 }
 
+# Rename columns for clarity
+#---------------------------------------------------------------------------
+
+df_rename <- df_filtered %>%
+  rename(
+    block_id = V1, 
+    domain = V5, 
+    start = V7, 
+    end = V8, 
+    label = V6
+  )
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

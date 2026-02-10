@@ -83,6 +83,9 @@ if (!is.null(words_to_remove) && length(words_to_remove) > 0) {
                   V5, ignore.case = TRUE))
 }
 
+# Tree ordering (optional)
+#---------------------------------------------------------------------------
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

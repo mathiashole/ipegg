@@ -87,7 +87,7 @@ if (!is.null(words_to_remove) && length(words_to_remove) > 0) {
 #---------------------------------------------------------------------------
 
 if (!is.null(tree_file)) {
-
+  message("Reading tree file...")
   tree_data <- read.tree(tree_file)
   tree_plot <- ggtree(tree_data)
   

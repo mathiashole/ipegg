@@ -112,6 +112,11 @@ df_rename <- df_filtered %>%
 # Prepare data for plotting
 #---------------------------------------------------------------------------
 
+nbh <- df_rename %>%
+  mutate(strand = "+") %>%  # Add strand column
+  select(label, nucleotide = domain, block_id, start, end, strand) %>%
+  distinct() # Ensure distinct rows
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

@@ -178,7 +178,11 @@ nbh_plot <- nbh_plot +
 # Output file generation
 #---------------------------------------------------------------------------
 
-base_name <- ifelse(is.null(output_file)) {}
+base_name <- ifelse(is.null(output_file)) {
+  output_pref
+} else {
+  sub("\\.[^.]*$", "", basename(output_file))
+}
 
 # Initialize variables
 input_file <- NULL

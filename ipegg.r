@@ -151,7 +151,12 @@ nbh_plot <- ggplot() +
 
 nbh_plot <- nbh_plot +
   geom_rect(
-    data = myset
+    data = myset,
+    aes(xmin = from, xmax = to,
+        ymin = as.numeric(block_id) - 0.35,
+        ymax = as.numeric(block_id) + 0.35,
+        fill = domain),
+    color = NA
   )
 
 

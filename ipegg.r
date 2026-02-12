@@ -147,8 +147,12 @@ nbh_plot <- ggplot() +
     color = "gray50",
     linewidth = 0.5,
     alpha = 0.8
-)
+  )
 
+nbh_plot <- nbh_plot +
+  geom_rect(
+    data = myset
+  )
 
 
 # Initialize variables

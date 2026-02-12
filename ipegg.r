@@ -293,9 +293,9 @@ convert_to_itol <- function(data, output_file, dataset_label) {
 }
 
 if (itol_data) {
-  message("🧬 Generating iTOL dataset...")
+  message("Generating iTOL dataset...")
   convert_to_itol(myset, output_itol, itol_label)
-  message("✅ iTOL file written: ", output_itol)
+  message("iTOL file written: ", output_itol)
 }
 
 # # Initialize variables

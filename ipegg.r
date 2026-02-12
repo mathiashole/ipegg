@@ -224,6 +224,9 @@ if (generate_stats) {
 
 }
 
+# ItoL file generation (optional)
+#---------------------------------------------------------------------------
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

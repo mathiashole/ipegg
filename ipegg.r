@@ -126,7 +126,9 @@ myset <- df_rename %>%
 #---------------------------------------------------------------------------
 
 seq_limits <- nbh %>%
-  mutate(block_id = factor(block_id))
+  mutate(block_id = factor(block_id)) %>%  # Convert to factor
+  group_by(block_id) %>%
+  summarize(seq_start = min(start), seq_end = max(end))
 
 # Initialize variables
 input_file <- NULL

@@ -125,6 +125,9 @@ myset <- df_rename %>%
 # Background domain plotting
 #---------------------------------------------------------------------------
 
+seq_limits <- nbh %>%
+  mutate(block_id = factor(block_id))
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

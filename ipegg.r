@@ -166,7 +166,14 @@ nbh_plot <- nbh_plot +
       expand = expansion(mult = c(0, 0.05)) 
   ) +
   labs(x = "Position", y = NULL) +
-  theme_minimal()  
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "right"
+  )  
 
 
 # Initialize variables

@@ -212,6 +212,9 @@ if (generate_stats) {
     ) %>%
     arrange(desc(count))
 
+  write.table(domain_stats, paste0(base_name, "_domain_stats.tsv"), sep = "\t", row.names = FALSE, quote = FALSE)
+
+
 }
 
 # Initialize variables

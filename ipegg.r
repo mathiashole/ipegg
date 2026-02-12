@@ -197,6 +197,11 @@ message("Plot saved: ", output_pdf)
 # Descriptive statistics generation (optional)
 #---------------------------------------------------------------------------
 
+if (generate_stats) {
+  message("Generating domain statistics...")
+
+}
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

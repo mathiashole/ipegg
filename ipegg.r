@@ -200,6 +200,11 @@ message("Plot saved: ", output_pdf)
 if (generate_stats) {
   message("Generating domain statistics...")
 
+  df_stats <- df_rename %>%
+    mutate(domain_length = end - start + 1)
+  # Table 1: Statistics by domain type
+  domain_stats <- df_stats %>%
+
 }
 
 # Initialize variables

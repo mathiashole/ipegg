@@ -130,6 +130,9 @@ seq_limits <- nbh %>%
   group_by(block_id) %>%
   summarize(seq_start = min(start), seq_end = max(end))
 
+nbh <- nbh %>% mutate(block_id = factor(block_id))
+myset <- myset %>% mutate(block_id = factor(block_id))
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

@@ -184,6 +184,10 @@ base_name <- ifelse(is.null(output_pref)) {
   sub("\\.[^.]*$", "", basename(input_file))
 }
 
+output_png <- paste0(base_name, ".png")
+output_pdf <- paste0(base_name, ".pdf")
+output_itol <- paste0(base_name, ".itol")
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

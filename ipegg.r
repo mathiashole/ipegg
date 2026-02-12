@@ -157,7 +157,8 @@ nbh_plot <- nbh_plot +
         ymax = as.numeric(block_id) + 0.35,
         fill = domain),
     color = NA
-  )
+  ) +
+  scale_fill_brewer(palette = "Dark2")
 
 
 # Initialize variables

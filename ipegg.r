@@ -281,7 +281,12 @@ convert_to_itol <- function(data, output_file, dataset_label) {
         collapse = ","
       ),
       .groups = "drop"
-    )
+    ) %>%
+    mutate(itol_line = sprintf("%s,%d,%s", block_id, protein_length, domains)) %>%
+    pull(itol_line)
+  
+  # Write the output file
+  writeLines(c(header, data_lines), output_file)
   
   message("iTOL file successfully generated at: ", output_file)
   return(invisible(domain_colors))

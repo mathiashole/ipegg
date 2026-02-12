@@ -227,6 +227,42 @@ if (generate_stats) {
 # ItoL file generation (optional)
 #---------------------------------------------------------------------------
 
+convert_to_itol <- function(data, output_file, dataset_label) {
+
+  # Create the file header
+  header <- c(
+    "DATASET_DOMAINS",
+    "#Protein domain datasets are visualized as schematic representations of proteins",
+    "",
+    "#=================================================================#",
+    "#                    MANDATORY SETTINGS                           #",
+    "#=================================================================#",
+    "SEPARATOR COMMA",
+    paste0("DATASET_LABEL,", dataset_label),
+    "COLOR,#ff0000",  # Default color (can be changed later in iTOL)
+    "",
+    "#=================================================================#",
+    "#                    OPTIONAL SETTINGS                            #",
+    "#=================================================================#",
+    "BACKBONE_COLOR,#dddddd",
+    "BACKBONE_HEIGHT,8",
+    "SHOW_DOMAIN_LABELS,1",
+    "LABEL_SIZE_FACTOR,0.8",
+    "LABEL_AUTO_COLOR,1",
+    "BORDER_WIDTH,0.5",
+    "BORDER_COLOR,#000000",
+    "",
+    "#=================================================================#",
+    "#       Actual data follows after the \"DATA\" keyword              #",
+    "#=================================================================#",
+    "DATA",
+    ""
+  )
+  
+  message("iTOL file successfully generated at: ", output_file)
+  return(invisible(domain_colors))
+}
+
 # # Initialize variables
 # input_file <- NULL
 # output_file <- NULL

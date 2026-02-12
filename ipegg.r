@@ -158,7 +158,15 @@ nbh_plot <- nbh_plot +
         fill = domain),
     color = NA
   ) +
-  scale_fill_brewer(palette = "Dark2")
+  scale_fill_brewer(palette = "Dark2") +
+  scale_x_continuous(
+      breaks = my_breaks,
+      labels = round(my_breaks),
+      limits = c(0, x_max_real),
+      expand = expansion(mult = c(0, 0.05)) 
+  ) +
+  labs(x = "Position", y = NULL) +
+  theme_minimal()  
 
 
 # Initialize variables

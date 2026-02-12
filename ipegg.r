@@ -214,6 +214,11 @@ if (generate_stats) {
 
   write.table(domain_stats, paste0(base_name, "_domain_stats.tsv"), sep = "\t", row.names = FALSE, quote = FALSE)
 
+  # Table 2: Domain count per sequence
+  domain_per_seq <- df_stats %>%
+    group_by(block_id) %>%
+    summarize(num_domains = n())
+
 
 }
 

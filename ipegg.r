@@ -204,6 +204,13 @@ if (generate_stats) {
     mutate(domain_length = end - start + 1)
   # Table 1: Statistics by domain type
   domain_stats <- df_stats %>%
+    group_by(domain) %>%
+    summarize(
+      count = n(),
+      mean_length = round(mean(domain_length), 2),
+      sd_length = round(sd(domain_length), 2)
+    ) %>%
+    arrange(desc(count))
 
 }
 

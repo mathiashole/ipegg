@@ -137,6 +137,17 @@ x_max_real <- max(seq_limits$seq_end, na.rm = TRUE)
 x_max_round <- round(x_max_real / 100) * 100
 my_breaks <- seq(0, x_max_round, length.out = 10)
 
+nbh_plot <- ggplot() +
+  # Central line per sequence
+  geom_segment(
+    data = seq_limits,
+    aes(x = seq_start, xend = seq_end,
+        y = as.numeric(block_id),  # Same numeric approach
+        yend = as.numeric(block_id))
+)
+
+
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

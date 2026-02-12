@@ -143,7 +143,10 @@ nbh_plot <- ggplot() +
     data = seq_limits,
     aes(x = seq_start, xend = seq_end,
         y = as.numeric(block_id),  # Same numeric approach
-        yend = as.numeric(block_id))
+        yend = as.numeric(block_id)),
+    color = "gray50",
+    linewidth = 0.5,
+    alpha = 0.8
 )
 
 

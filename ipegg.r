@@ -188,6 +188,9 @@ output_png <- paste0(base_name, ".png")
 output_pdf <- paste0(base_name, ".pdf")
 output_itol <- paste0(base_name, ".itol")
 
+ggsave(output_png, plot = nbh_plot, width = 18, height = 8, dpi = 600)
+ggsave(output_pdf, plot = nbh_plot, width = 18, height = 10)
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

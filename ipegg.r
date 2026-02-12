@@ -228,6 +228,12 @@ if (generate_stats) {
 #---------------------------------------------------------------------------
 
 convert_to_itol <- function(data, output_file, dataset_label) {
+  # Prepare the data: sort and calculate protein lengths
+  data_prepared <- data %>%
+    arrange(block_id, start) %>%
+    group_by(block_id) %>%
+    mutate(protein_length = max(end)) %>%
+    ungroup()
 
   # Create the file header
   header <- c(

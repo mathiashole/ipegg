@@ -175,6 +175,10 @@ nbh_plot <- nbh_plot +
     legend.position = "right"
   )  
 
+# Output file generation
+#---------------------------------------------------------------------------
+
+base_name <- ifelse(is.null(output_file)) {}
 
 # Initialize variables
 input_file <- NULL

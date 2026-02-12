@@ -194,6 +194,9 @@ ggsave(output_pdf, plot = nbh_plot, width = 18, height = 10)
 message("Plot saved: ", output_png)
 message("Plot saved: ", output_pdf)
 
+# Descriptive statistics generation (optional)
+#---------------------------------------------------------------------------
+
 # Initialize variables
 input_file <- NULL
 output_file <- NULL

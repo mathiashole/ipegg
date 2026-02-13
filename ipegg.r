@@ -46,6 +46,11 @@ itol_label <- config$itol$dataset_label %||% "Protein Domains"
 
 domain_colors_config <- config$domains$colors # read colors
 
+if (is.null(domain_colors_config)) {
+  message("No custom domain colors defined. Using Dark2 palette.")
+  domain_colors_config <- NULL
+}
+
 if (is.null(input_file)) {
   stop("Input file not defined in config.yaml")
 }

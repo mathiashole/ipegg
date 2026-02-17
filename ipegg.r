@@ -142,7 +142,11 @@ if (is.null(custom_colors)) {
   return(palette)
 }
 
-  return(domain_colors)
+# Case 2: there are defined colors, but some domains are missing
+final_colors <- custom_colors
+missing_domains <- setdiff(domains, names(custom_colors))
+
+
 }
 
 # Background domain plotting

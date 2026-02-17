@@ -146,6 +146,12 @@ if (is.null(custom_colors)) {
 final_colors <- custom_colors
 missing_domains <- setdiff(domains, names(custom_colors))
 
+if (length(missing_domains) > 0) { 
+  message("Warning: The following domains are missing colors in the config and will be assigned default colors: ", paste(missing_domains, collapse = ", "))
+
+}
+
+  return(final_colors)
 
 }
 

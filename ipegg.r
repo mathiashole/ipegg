@@ -335,3 +335,14 @@ convert_to_itol <- function(data, output_file, dataset_label) {
 #   convert_to_itol(myset, output_itol, itol_label)
 #   message("iTOL file written: ", output_itol)
 # }
+
+if (itol_data) {
+  message("Generating iTOL dataset...")
+  convert_to_itol(
+    myset,
+    output_itol,
+    itol_label,
+    domain_colors
+  )
+  message("iTOL file written: ", output_itol)
+}

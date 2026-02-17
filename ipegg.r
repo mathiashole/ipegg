@@ -134,6 +134,8 @@ myset <- df_rename %>%
 
 resolve_domain_colors <- function(domains, custom_colors = NULL) {
   
+  domains <- sort(unique(domains)) # Get unique sorted domains
+
   return(domain_colors)
 }
 

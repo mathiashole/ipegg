@@ -273,12 +273,12 @@ convert_to_itol <- function(data, output_file, dataset_label) {
     mutate(protein_length = max(end)) %>%
     ungroup()
   
-  # Assign unique colors to each domain (consistent with "Dark2" Brewer palette)
-  domain_levels <- levels(factor(data_prepared$domain))
-  domain_colors <- setNames(
-    brewer.pal(max(3, length(domain_levels)), "Dark2")[seq_along(domain_levels)],
-    domain_levels
-  )
+  # # Assign unique colors to each domain (consistent with "Dark2" Brewer palette)
+  # domain_levels <- levels(factor(data_prepared$domain))
+  # domain_colors <- setNames(
+  #   brewer.pal(max(3, length(domain_levels)), "Dark2")[seq_along(domain_levels)],
+  #   domain_levels
+  # )
   
   # Create the file header
   header <- c(

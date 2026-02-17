@@ -195,7 +195,8 @@ nbh_plot <- nbh_plot +
         fill = domain),
     color = NA
   ) +
-  scale_fill_brewer(palette = "Dark2") +
+  # scale_fill_brewer(palette = "Dark2") +
+  scale_fill_manual(values = domain_colors) +
   scale_x_continuous(
       breaks = my_breaks,
       labels = round(my_breaks),

@@ -172,6 +172,8 @@ x_max_real <- max(seq_limits$seq_end, na.rm = TRUE)
 x_max_round <- round(x_max_real / 100) * 100
 my_breaks <- seq(0, x_max_round, length.out = 10)
 
+domain_colors <- resolve_domain_colors(domains = myset$domain, user_colors = domain_colors_config)
+
 nbh_plot <- ggplot() +
   # Central line per sequence
   geom_segment(

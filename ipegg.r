@@ -129,6 +129,14 @@ myset <- df_rename %>%
   select(label, block_id, domain, start, end, from, to, strand) %>%
   distinct() # Ensure distinct rows
 
+# Prepare domain colors
+#---------------------------------------------------------------------------
+
+resolve_domain_colors <- function(domains, custom_colors = NULL) {
+  
+  return(domain_colors)
+}
+
 # Background domain plotting
 #---------------------------------------------------------------------------
 

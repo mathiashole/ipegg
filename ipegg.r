@@ -51,7 +51,8 @@ if (is.null(input_file)) {
 domain_colors_config <- config$domains$colors
 
 if (is.null(domain_colors_config)) {
-
+  message("No custom domain colors defined. Using Dark2 palette.")
+  domain_colors_config <- NULL
 }
 
 # read tsv file

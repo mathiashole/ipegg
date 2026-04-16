@@ -50,6 +50,9 @@ if (is.null(input_file)) {
 
 domain_colors_config <- config$domains$colors
 
+if (is.null(domain_colors_config)) {
+
+}
 
 # read tsv file
 data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)

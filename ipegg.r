@@ -141,6 +141,7 @@ resolve_domain_colors <- function(domains, custom_colors = NULL) {
   domains <- sort(unique(domains)) # Get unique sorted domains
 
 if (is.null(custom_colors)) {
+  message("No custom colors provided. Assigning default colors from Dark2 palette.")
   palette <- brewer.pal(max(3, length(domains)), "Dark2")[seq_along(domains)] # Get colors from Dark2 palette
   names(palette) <- domains # Assign domain names to colors
   return(palette)

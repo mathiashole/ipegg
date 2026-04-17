@@ -76,6 +76,8 @@ if (!is.null(replace_rules)) {
       df_sorted$V5
     )
   }
+} else {
+  message("No normalization rules defined. Skipping domain name normalization.")
 }
 
 # Remove specified words from domain names

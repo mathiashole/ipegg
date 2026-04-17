@@ -236,7 +236,7 @@ ggsave(output_svg, plot = nbh_plot, width = 18, height = 10)
 ggsave(output_png, plot = nbh_plot, width = 18, height = 10, dpi = 900)
 ggsave(output_pdf, plot = nbh_plot, width = 18, height = 10)
 
-message("Plot saved: ", output_svg, ", ", output_png, ", ", output_pdf)
+message("Plot saved: ", output_svg, ", ", output_png, ", ", output_pdf, "and ", output_itol)
 
 # Descriptive statistics generation (optional)
 #---------------------------------------------------------------------------

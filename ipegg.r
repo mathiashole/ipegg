@@ -271,7 +271,7 @@ if (generate_stats) {
 # ItoL file generation (optional)
 #---------------------------------------------------------------------------
 
-convert_to_itol <- function(data, output_file, dataset_label) {
+convert_to_itol <- function(data, output_file, dataset_label, domain_colors) {
   # Prepare the data: sort and calculate protein lengths
   data_prepared <- data %>%
     arrange(block_id, start) %>%

@@ -90,6 +90,8 @@ if (!is.null(words_to_remove) && length(words_to_remove) > 0) {
   df_filtered <- df_sorted %>%
     filter(!grepl(paste(words_to_remove, collapse = "|"),
                   V5, ignore.case = TRUE))
+} else {
+  message("No words specified for removal. Skipping domain filtering.")
 }
 
 # Tree ordering (optional)

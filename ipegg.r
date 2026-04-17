@@ -227,6 +227,7 @@ base_name <- if (!is.null(output_pref)) {
   sub("\\.[^.]*$", "", basename(input_file))
 }
 
+output_svg <- paste0(base_name, ".svg")
 output_png <- paste0(base_name, ".png")
 output_pdf <- paste0(base_name, ".pdf")
 output_itol <- paste0(base_name, ".itol")

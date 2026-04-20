@@ -109,6 +109,8 @@ if (!is.null(tree_file)) {
 } else if (ordenar) {
   message("Ordering by natural alphanumeric sort...")
   unique_ids <- unique(df_filtered$V1)
+  final_order <- unique_ids[order(gsub("([0-9]+)", "\\1", unique_ids), method = "radix", numeric.case = TRUE)]
+
 } else {
 
 }

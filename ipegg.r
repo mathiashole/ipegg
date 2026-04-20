@@ -136,11 +136,11 @@ myset <- df_rename %>%
 # Prepare domain colors
 #---------------------------------------------------------------------------
 
-resolve_domain_colors <- function(domains, custom_colors = NULL) {
+resolve_domain_colors <- function(domains, user_colors = NULL) {
 
   domains <- sort(unique(domains)) # Get unique sorted domains
 
-if (is.null(custom_colors)) {
+if (is.null(user_colors)) {
   message("No custom colors provided. Assigning default colors from Dark2 palette.")
   palette <- brewer.pal(max(3, length(domains)), "Dark2")[seq_along(domains)] # Get colors from Dark2 palette
   names(palette) <- domains # Assign domain names to colors
@@ -148,8 +148,8 @@ if (is.null(custom_colors)) {
 }
 
 # Case 2: there are defined colors, but some domains are missing
-final_colors <- custom_colors
-missing_domains <- setdiff(domains, names(custom_colors))
+final_colors <- user_colors
+missing_domains <- setdiff(domains, names(user_colors))
 
 if (length(missing_domains) > 0) { 
   message("Warning: The following domains are missing colors in the config and will be assigned default colors: ", paste(missing_domains, collapse = ", "))

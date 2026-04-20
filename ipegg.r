@@ -160,8 +160,7 @@ final_colors <- user_colors
 missing <- setdiff(domains, names(user_colors))
 
 if (length(missing) > 0) { 
-  message(
-  "Assigning automatic colors (Dark2) to missing domains: ", paste(missing, collapse = ", "))
+  message("Assigning automatic colors (Dark2) to missing domains: ", paste(missing, collapse = ", "))
   
   default_palette <- brewer.pal(max(3, length(missing)), "Dark2")[seq_along(missing)]
   

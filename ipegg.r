@@ -148,12 +148,12 @@ if (is.null(user_colors)) {
   return(palette)
 }
 
-if (is.null(user_colors)) {
-  message("No custom colors provided. Assigning default colors from Dark2 palette.")
-  palette <- brewer.pal(max(3, length(domains)), "Dark2")[seq_along(domains)] # Get colors from Dark2 palette
-  names(palette) <- domains # Assign domain names to colors
-  return(palette)
-}
+# if (is.null(user_colors)) {
+#   message("No custom colors provided. Assigning default colors from Dark2 palette.")
+#   palette <- brewer.pal(max(3, length(domains)), "Dark2")[seq_along(domains)] # Get colors from Dark2 palette
+#   names(palette) <- domains # Assign domain names to colors
+#   return(palette)
+# }
 
 # Case 2: there are defined colors, but some domains are missing
 final_colors <- user_colors

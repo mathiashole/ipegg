@@ -110,9 +110,9 @@ if (!is.null(tree_file)) {
   message("Ordering by natural alphanumeric sort...")
   unique_ids <- unique(df_filtered$V1)
   final_order <- unique_ids[order(gsub("([0-9]+)", "\\1", unique_ids), method = "radix", numeric.case = TRUE)]
-
 } else {
-
+  message("Maintaining original order from input file...")
+  final_order <- unique(df_filtered$V1)
 }
 
 # Rename columns for clarity

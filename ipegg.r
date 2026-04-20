@@ -106,6 +106,11 @@ if (!is.null(tree_file)) {
     filter(isTip) %>%
     arrange(y) %>%
     pull(label)
+} else if (ordenar) {
+  message("Ordering by natural alphanumeric sort...")
+  unique_ids <- unique(df_filtered$V1)
+} else {
+
 }
 
 # Rename columns for clarity

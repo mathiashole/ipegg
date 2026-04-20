@@ -157,12 +157,15 @@ if (is.null(user_colors)) {
 
 # Case 2: there are defined colors, but some domains are missing
 final_colors <- user_colors
-missing_domains <- setdiff(domains, names(user_colors))
+missing <- setdiff(domains, names(user_colors))
 
-if (length(missing_domains) > 0) { 
-  message("Warning: The following domains are missing colors in the config and will be assigned default colors: ", paste(missing_domains, collapse = ", "))
-  default_palette <- brewer.pal(max(3, length(missing_domains)), "Dark2")[seq_along(missing_domains)]
-  names(default_palette) <- missing_domains
+if (length(missing) > 0) { 
+  message(
+  "Assigning automatic colors (Dark2) to missing domains: ", paste(missing, collapse = ", "))
+  
+  default_palette <- brewer.pal(max(3, length(missing)), "Dark2")[seq_along(missing)]
+  
+  names(default_palette) <- missing
   final_colors <- c(final_colors, default_palette)
 }
 

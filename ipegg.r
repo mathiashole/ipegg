@@ -102,7 +102,7 @@ if (!is.null(tree_file)) {
   tree_data <- read.tree(tree_file)
   tree_plot <- ggtree(tree_data)
   
-  tree_order <- tree_plot$data %>%
+  final_order <- tree_plot$data %>%
     filter(isTip) %>%
     arrange(y) %>%
     pull(label)

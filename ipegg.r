@@ -229,7 +229,7 @@ base_name <- if (!is.null(output_pref)) {
 
 svg(output_svg, width = 18, height = 10)
 print(nbh_plot)
-
+invisible(dev.off())
 output_png <- paste0(base_name, ".png")
 output_pdf <- paste0(base_name, ".pdf")
 output_itol <- paste0(base_name, ".itol")

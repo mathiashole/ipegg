@@ -227,14 +227,12 @@ base_name <- if (!is.null(output_pref)) {
   sub("\\.[^.]*$", "", basename(input_file))
 }
 
-svg(output_svg, width = 18, height = 10)
-print(nbh_plot)
-invisible(dev.off())
+output_svg <- paste0(base_name, ".svg")
 output_png <- paste0(base_name, ".png")
 output_pdf <- paste0(base_name, ".pdf")
 output_itol <- paste0(base_name, ".itol")
 
-ggsave(output_svg, plot = nbh_plot, width = 18, height = 10)
+ggsave(output_svg, plot = nbh_plot, width = 18, height = 10, device = "svg")
 ggsave(output_png, plot = nbh_plot, width = 18, height = 10, dpi = 900)
 ggsave(output_pdf, plot = nbh_plot, width = 18, height = 10)
 

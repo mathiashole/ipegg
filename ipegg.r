@@ -128,6 +128,7 @@ df_rename <- df_filtered %>%
   ) %>%
   mutate(block_id = factor(block_id, levels = final_order)) # Set block_id as a factor with the specified order
 
+# print(df_rename$block_id)
 # Prepare data for plotting
 #---------------------------------------------------------------------------
 

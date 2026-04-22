@@ -248,6 +248,9 @@ output_png <- paste0(base_name, ".png")
 output_pdf <- paste0(base_name, ".pdf")
 output_itol <- paste0(base_name, ".itol")
 
+n_seqs <- length(unique(df_rename$block_id))
+
+
 ggsave(output_svg, plot = nbh_plot, width = 18, height = 10, device = "svg")
 ggsave(output_png, plot = nbh_plot, width = 18, height = 10, dpi = 900)
 ggsave(output_pdf, plot = nbh_plot, width = 18, height = 10)

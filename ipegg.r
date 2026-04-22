@@ -135,7 +135,7 @@ df_rename <- df_filtered %>%
 
 nbh <- df_rename %>%
   mutate(strand = "+") %>%  # Add strand column
-  select(label, nucleotide = domain, block_id, start, end, strand) %>%
+  select(label, nucleotide = domain, block_id, start, end, strand, prot_len) %>%
   distinct() # Ensure distinct rows
 
 myset <- df_rename %>%

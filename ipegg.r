@@ -120,7 +120,8 @@ if (!is.null(tree_file)) {
 
 df_rename <- df_filtered %>%
   rename(
-    block_id = V1, 
+    block_id = V1,
+    prot_len = V3, 
     domain = V5, 
     start = V7, 
     end = V8, 

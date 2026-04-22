@@ -181,7 +181,8 @@ if (length(missing) > 0) {
 seq_limits <- nbh %>%
   mutate(block_id = factor(block_id)) %>%  # Convert to factor
   group_by(block_id) %>%
-  summarize(seq_start = 0, seq_end = max(end))
+  summarize(seq_start = 0, seq_end = max(prot_len))
+  # summarize(seq_start = 0, seq_end = max(end))
   # summarize(seq_start = min(start), seq_end = max(end))
 
 nbh <- nbh %>% mutate(block_id = factor(block_id))

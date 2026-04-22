@@ -188,7 +188,8 @@ seq_limits <- nbh %>%
 nbh <- nbh %>% mutate(block_id = factor(block_id))
 myset <- myset %>% mutate(block_id = factor(block_id))
 
-x_max_real <- max(seq_limits$seq_end, na.rm = TRUE)
+# x_max_real <- max(seq_limits$seq_end, na.rm = TRUE)
+x_max_real <- max(df_rename$prot_len, na.rm = TRUE)
 x_max_round <- round(x_max_real / 100) * 100
 my_breaks <- seq(0, x_max_round, length.out = 10)
 

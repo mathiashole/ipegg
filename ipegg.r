@@ -250,6 +250,7 @@ output_itol <- paste0(base_name, ".itol")
 
 n_seqs <- length(unique(df_rename$block_id))
 
+dynamic_height <- max(2, n_seqs * 0.4)
 
 ggsave(output_svg, plot = nbh_plot, width = 18, height = 10, device = "svg")
 ggsave(output_png, plot = nbh_plot, width = 18, height = 10, dpi = 900)

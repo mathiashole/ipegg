@@ -253,6 +253,9 @@ n_seqs <- length(unique(df_rename$block_id))
 if (n_seqs <= 10) {
   # blocks more spaced out for better visibility
   dynamic_height <- 3.5 + (n_seqs * 0.5)
+} else if (n_seqs <= 30) {
+  # optimized for many sequences
+  dynamic_height <- 2.5 + (n_seqs * 0.20)
 }
 
 ggsave(output_svg, plot = nbh_plot, width = 18, height = 10, device = "svg")

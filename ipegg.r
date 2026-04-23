@@ -256,6 +256,9 @@ if (n_seqs <= 10) {
 } else if (n_seqs <= 30) {
   # optimized for many sequences
   dynamic_height <- 2.5 + (n_seqs * 0.20)
+} else {
+  # ultra-compact mode for extremely large datasets
+  dynamic_height <- 1.5 + (n_seqs * 0.15)
 }
 
 ggsave(output_svg, plot = nbh_plot, width = 18, height = 10, device = "svg")

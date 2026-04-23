@@ -261,9 +261,9 @@ if (n_seqs <= 10) {
   dynamic_height <- 1.5 + (n_seqs * 0.15)
 }
 
-ggsave(output_svg, plot = nbh_plot, width = 18, height = 10, device = "svg")
-ggsave(output_png, plot = nbh_plot, width = 18, height = 10, dpi = 900)
-ggsave(output_pdf, plot = nbh_plot, width = 18, height = 10)
+ggsave(output_svg, plot = nbh_plot, width = 18, height = dynamic_height, device = "svg")
+ggsave(output_png, plot = nbh_plot, width = 18, height = dynamic_height, dpi = 900)
+ggsave(output_pdf, plot = nbh_plot, width = 18, height = dynamic_height)
 
 message("Plot saved: ", output_svg, ", ", output_png, ", ", output_pdf, "and ", output_itol)
 

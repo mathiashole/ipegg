@@ -7,3 +7,6 @@
 `ipegg` (**I**nter**P**roscan **E**nvironment & **G**enomic **G**rapher) is an R-based tool designed to visualize protein domain architectures from InterProScan TSV outputs. It creates publication-quality plots that respect the full protein length and allows for deep customization via YAML configuration files.
 
 ## 🚀 Features
+
+### 📊 Advanced Visualization
+- **True Backbone**: Represents the protein from amino acid 0 to its full length (V3 column), highlighting N- and C-terminal regions without domains.

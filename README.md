@@ -21,3 +21,7 @@
 ### 🔗 Integration
 - **iTOL Ready**: Generates ready-to-use dataset files for iTOL (Interactive Tree Of Life).
 - **Phylogenetic Ordering**: Option to order sequences based on a Newick tree file.
+
+## ⚙️ Configuration (config.yaml)
+
+`ipegg` uses a YAML file to manage settings, ensuring reproducible results for your genomic pipelines.

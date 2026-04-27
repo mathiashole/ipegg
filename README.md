@@ -15,3 +15,4 @@
 
 ### 🎨 Customization
 - **Regex Normalization**: Automatically clean or rename complex domain names.
+- **Domain Filtering**: Remove noisy or uninformative hits (e.g., non-cytoplasmic regions).

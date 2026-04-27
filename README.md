@@ -16,3 +16,4 @@
 ### 🎨 Customization
 - **Regex Normalization**: Automatically clean or rename complex domain names.
 - **Domain Filtering**: Remove noisy or uninformative hits (e.g., non-cytoplasmic regions).
+- **Dynamic Themes**: Large axis titles and clear X-axis lines for better readability.

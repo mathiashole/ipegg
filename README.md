@@ -12,3 +12,6 @@
 - **True Backbone**: Represents the protein from amino acid 0 to its full length (V3 column), highlighting N- and C-terminal regions without domains.
 - **Intelligent Scaling**: Automatically adjusts image height based on the number of sequences to maintain consistent block thickness.
 - **Natural Sorting**: Handles alphanumeric IDs (e.g., Chr1, Chr2, Chr10) correctly.
+
+### 🎨 Customization
+- **Regex Normalization**: Automatically clean or rename complex domain names.

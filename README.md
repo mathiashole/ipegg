@@ -25,3 +25,6 @@
 ## ⚙️ Configuration (config.yaml)
 
 `ipegg` uses a YAML file to manage settings, ensuring reproducible results for your genomic pipelines.
+
+## Config file example 
+

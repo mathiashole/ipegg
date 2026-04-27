@@ -20,3 +20,4 @@
 
 ### 🔗 Integration
 - **iTOL Ready**: Generates ready-to-use dataset files for iTOL (Interactive Tree Of Life).
+- **Phylogenetic Ordering**: Option to order sequences based on a Newick tree file.

@@ -70,3 +70,9 @@ git clone [https://github.com/mathiashole/ipegg.git](https://github.com/mathiash
 
 cd ipegg
 ```
+
+## 2. Install required R packages:
+```R
+
+install.packages(c("ggplot2", "dplyr", "yaml", "RColorBrewer", "tidyr", "ggtree"))
+```

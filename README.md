@@ -47,3 +47,8 @@ install.packages(c("ggplot2", "dplyr", "yaml", "RColorBrewer", "tidyr", "ggtree"
 ## 🔧 Usage
 
 Run the script from your terminal passing the configuration file as an argument:
+
+```Bash
+
+Rscript ipegg.r --config config2.yaml
+```

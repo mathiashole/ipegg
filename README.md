@@ -52,3 +52,5 @@ Run the script from your terminal passing the configuration file as an argument:
 
 Rscript ipegg.r --config config2.yaml
 ```
+
+## YAML Arguments

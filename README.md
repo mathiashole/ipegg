@@ -53,4 +53,12 @@ Run the script from your terminal passing the configuration file as an argument:
 Rscript ipegg.r --config config2.yaml
 ```
 
-## YAML Arguments
+##  YAML Arguments
+
+| Section | Parameter | Description |
+| :--- | :--- | :--- |
+| **input** | `file` | Path to the InterProScan TSV file. |
+| **normalize** | `replace` | Dictionary of "Pattern": "Replacement" for name cleaning (Regex support). |
+| **remove** | `list` | List of domains or keywords to exclude from the final plot. |
+| **options** | `ordenar` | Boolean. If `true`, applies natural alphanumeric sort (e.g., Hap1, Hap2, Hap10). |
+| **domains** | `colors` | Manual color mapping using R color names or Hex codes. |

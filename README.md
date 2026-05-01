@@ -62,3 +62,8 @@ Rscript ipegg.r --config config2.yaml
 | **remove** | `list` | List of domains or keywords to exclude from the final plot. |
 | **options** | `ordenar` | Boolean. If `true`, applies natural alphanumeric sort (e.g., Hap1, Hap2, Hap10). |
 | **domains** | `colors` | Manual color mapping using R color names or Hex codes. |
+
+## :sparkling_heart: Contributing
+
+We welcome contributions!
+

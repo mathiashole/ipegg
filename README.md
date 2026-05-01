@@ -67,3 +67,6 @@ Rscript ipegg.r --config config2.yaml
 
 We welcome contributions!
 
+- :octocat: [Pull requests](https://github.com/mathiashole/ipegg/pulls) and :star2: stars are always welcome.
+- For major changes, please open an [issue](https://github.com/mathiashole/ipeeg/issues) first to discuss what you would like to change.
+- Please make sure to update tests as appropriate.

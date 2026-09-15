@@ -31,6 +31,7 @@ config <- yaml.load_file(config_file)
 #-------------------------------------------------------------------------
 
 input_file <- config$input$file
+input_format <- config$input$format %||% "interproscan" # "interproscan", "gff", "gff3", "tsv"
 output_pref <- config$output$prefix
 
 tree_file <- config$tree$file # Optional: Path to the .contree file for ordering sequences

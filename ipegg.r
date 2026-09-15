@@ -63,6 +63,8 @@ if (is.null(domain_colors_config)) {
 # read tsv file
 if(input_format == "interproscan") {
   data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+} else if (input_format == "generic_tsv") {
+  raw_data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
 }
 
 # data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)

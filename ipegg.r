@@ -99,7 +99,7 @@ if(input_format == "interproscan") {
 
   data <- data.frame(
     V1 = gff_data$seqid,
-    V3 = sequence_length,
+    V3 = gff_data$sequence_length,
     V5 = gff_data$type,
     V6 = extracted_name,
     V7 = gff_data$start,

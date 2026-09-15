@@ -65,6 +65,15 @@ if(input_format == "interproscan") {
   data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
 } else if (input_format == "generic_tsv") {
   raw_data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+
+  data <- data.frame(
+    V1 = raw_data[[config$columns$sequence_id]],
+    V3 = raw_data[[config$columns$sequence_length]],
+    V5 = raw_data[[config$columns$feature]],
+    V6 = raw_data[[config$columns$label]],
+    V7 = raw_data[[config$columns$start]],
+    V8 = raw_data[[config$columns$end]]
+  )
 }
 
 # data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)

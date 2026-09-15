@@ -34,7 +34,7 @@ input_file <- config$input$file
 input_format <- config$input$format %||% "interproscan" # "interproscan", "gff", "gff3", "tsv"
 output_pref <- config$output$prefix
 
-# Gff options
+# GFF options
 target_types <- config$features$types %||% c("CDS", "gene", "protein_coding_gene") # if gff file
 name_attr    <- config$features$name_attribute %||% "Name" # if gff file
 

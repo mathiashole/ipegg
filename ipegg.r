@@ -79,6 +79,10 @@ if(input_format == "interproscan") {
 
   colnames(gff_data) <- c("seqid", "source", "type", "start", "end","score", "strand", "phase", "attributes")
 
+  # Select feature types
+  gff_data <- gff_data %>%
+    filter(type %in% target_types)
+
 } else {
   stop("Unsupported input format: ", input_format)
 }

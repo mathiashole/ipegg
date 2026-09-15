@@ -90,6 +90,12 @@ if(input_format == "interproscan") {
     mutate(sequence_length = max(end, na.rm = TRUE)) %>%
     ungroup()
 
+  # Extract feature name from GFF attributes
+  extracted_name <- extract_attribute(
+    gff_data$attributes,
+    name_attr
+)
+
 
   data <- data.frame(
     V1 = gff_data$seqid,

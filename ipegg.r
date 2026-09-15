@@ -74,6 +74,10 @@ if(input_format == "interproscan") {
     V7 = raw_data[[config$columns$start]],
     V8 = raw_data[[config$columns$end]]
   )
+} else if (input_format %in% c("gff", "gff3")) {
+
+} else {
+  stop("Unsupported input format: ", input_format)
 }
 
 # data <- read.delim(input_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)

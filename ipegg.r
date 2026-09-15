@@ -83,6 +83,15 @@ if(input_format == "interproscan") {
   gff_data <- gff_data %>%
     filter(type %in% target_types)
 
+  data <- data.frame(
+    V1 = gff_data$seqid,
+    V3 = sequence_length,
+    V5 = gff_data$type,
+    V6 = extracted_name,
+    V7 = gff_data$start,
+    V8 = gff_data$end
+  )
+
 } else {
   stop("Unsupported input format: ", input_format)
 }

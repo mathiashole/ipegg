@@ -32,9 +32,11 @@ config <- yaml.load_file(config_file)
 
 input_file <- config$input$file
 input_format <- config$input$format %||% "interproscan" # "interproscan", "gff", "gff3", "tsv"
+output_pref <- config$output$prefix
+
+# Gff options
 target_types <- config$features$types %||% c("CDS", "gene", "protein_coding_gene") # if gff file
 name_attr    <- config$features$name_attribute %||% "Name" # if gff file
-output_pref <- config$output$prefix
 
 tree_file <- config$tree$file # Optional: Path to the .contree file for ordering sequences
 

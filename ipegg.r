@@ -74,7 +74,7 @@ if(input_format == "interproscan") {
     V7 = raw_data[[config$columns$start]],
     V8 = raw_data[[config$columns$end]]
   )
-  
+
 } else if (input_format %in% c("gff", "gff3")) {
   gff_data <- read.delim(input_file, header = FALSE, sep = "\t", comment.char = "#", stringsAsFactors = FALSE)
 
@@ -83,6 +83,13 @@ if(input_format == "interproscan") {
   # Select feature types
   gff_data <- gff_data %>%
     filter(type %in% target_types)
+
+  # Calculate sequence length from annotated coordinates
+  gff_data <- gff_data %>%
+    group_by(seqid) %>%
+    mutate(sequence_length = max(end, na.rm = TRUE)) %>%
+    ungroup()
+
 
   data <- data.frame(
     V1 = gff_data$seqid,
